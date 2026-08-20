@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Kit — trang tham chiếu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Google+Sans+Code:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ui.css">
+<style>
+  .page { display: grid; grid-template-columns: 190px 1fr; gap: var(--sp-6);
+          max-width: 1180px; margin: 0 auto; padding: var(--sp-5) }
+  @media (max-width: 800px) { .page { grid-template-columns: 1fr } .nav { display: none } }
+  .nav { position: sticky; top: 72px; align-self: start }
+  section { margin-bottom: var(--sp-7); scroll-margin-top: 72px }
+  .sec-label { font-size: var(--fs-xs); color: var(--ink-3); letter-spacing: .01em;
+               padding-bottom: var(--sp-1); margin-bottom: var(--sp-3);
+               border-bottom: 0.5px solid var(--line) }
+  .demo { display: flex; gap: var(--sp-2); flex-wrap: wrap; align-items: center;
+          margin-bottom: var(--sp-3) }
+  .sw { display: flex; flex-wrap: wrap; gap: var(--sp-2) }
+  .sw div { width: 96px }
+  .sw b { display: block; height: 40px; border-radius: var(--r-sm);
+          box-shadow: inset 0 0 0 0.5px var(--line-2); margin-bottom: var(--sp-1) }
+  .sw span { display: block; font-size: 10.5px; font-family: var(--mono); color: var(--ink-3);
+             overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+  .scale-row { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: 5px;
+               font-size: var(--fs-sm); color: var(--ink-3); font-family: var(--mono) }
+  .scale-row b { display: block; height: 12px; background: var(--accent-bar); border-radius: 2px }
+  .note { font-size: var(--fs-sm); color: var(--ink-2); margin-top: var(--sp-2) }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-row" style="max-width:1180px;margin:0 auto;padding:0 var(--sp-5)">
+  <span style="font-weight:500">UI Kit</span>
+  <span class="caption faint">ui.css</span>
+  <span class="spacer"></span>
+  <span class="segmented">
+    <span class="on">Thành phần</span><span>Token</span>
+  </span>
+</div></div>
+
+<div class="page">
+
+<nav class="nav sidenav">
+  <span class="sidenav-label">Nền tảng</span>
+  <a class="sidenav-item on" href="#token">Token</a>
+  <a class="sidenav-item" href="#chu">Chữ</a>
+  <span class="sidenav-label">Thành phần</span>
+  <a class="sidenav-item" href="#nut">Nút</a>
+  <a class="sidenav-item" href="#form">Biểu mẫu</a>
+  <a class="sidenav-item" href="#data">Hiển thị dữ liệu</a>
+  <a class="sidenav-item" href="#phanhoi">Phản hồi <span class="badge badge-plain">7</span></a>
+  <a class="sidenav-item" href="#lopphu">Lớp phủ</a>
+  <a class="sidenav-item" href="#dieuhuong">Điều hướng</a>
+</nav>
+
+<main>
+
+<section>
+  <h1 style="margin-bottom:2px">Trang tham chiếu</h1>
+  <p class="caption">Toàn bộ thành phần trong <code>ui.css</code>. Đổi giao diện tối của hệ thống để xem bản tối.</p>
+</section>
+
+<!-- ============ TOKEN ============ -->
+<section id="token">
+  <div class="sec-label">Màu nền và chữ</div>
+  <div class="sw">
+    <div><b style="background:var(--canvas)"></b><span>--canvas</span></div>
+    <div><b style="background:var(--paper)"></b><span>--paper</span></div>
+    <div><b style="background:var(--sunk)"></b><span>--sunk</span></div>
+    <div><b style="background:var(--ink)"></b><span>--ink</span></div>
+    <div><b style="background:var(--ink-2)"></b><span>--ink-2</span></div>
+    <div><b style="background:var(--ink-3)"></b><span>--ink-3</span></div>
+  </div>
+  <p class="note">Ba lớp nền sát nhau là cố ý. Phân tầng đến từ hairline và khoảng trắng.</p>
+
+  <div class="sec-label mt-5">Màu ngữ nghĩa</div>
+  <div class="sw">
+    <div><b style="background:var(--accent)"></b><span>--accent</span></div>
+    <div><b style="background:var(--accent-bg)"></b><span>--accent-bg</span></div>
+    <div><b style="background:var(--warn)"></b><span>--warn</span></div>
+    <div><b style="background:var(--warn-bg)"></b><span>--warn-bg</span></div>
+    <div><b style="background:var(--ok)"></b><span>--ok</span></div>
+    <div><b style="background:var(--ok-bg)"></b><span>--ok-bg</span></div>
+    <div><b style="background:var(--danger)"></b><span>--danger</span></div>
+    <div><b style="background:var(--danger-bg)"></b><span>--danger-bg</span></div>
+  </div>
+
+  <div class="sec-label mt-5">Thang khoảng cách</div>
+  <div class="scale-row"><span style="width:52px">sp-1</span><b style="width:4px"></b>4</div>
+  <div class="scale-row"><span style="width:52px">sp-2</span><b style="width:8px"></b>8</div>
+  <div class="scale-row"><span style="width:52px">sp-3</span><b style="width:12px"></b>12</div>
+  <div class="scale-row"><span style="width:52px">sp-4</span><b style="width:16px"></b>16</div>
+  <div class="scale-row"><span style="width:52px">sp-5</span><b style="width:24px"></b>24</div>
+  <div class="scale-row"><span style="width:52px">sp-6</span><b style="width:32px"></b>32</div>
+  <div class="scale-row"><span style="width:52px">sp-7</span><b style="width:48px"></b>48</div>
+  <p class="note">Dùng thang này thay vì gõ số px tự do. Không có thang thì mỗi người chế một kiểu và bộ style loãng ra.</p>
+</section>
+
+<!-- ============ CHỮ ============ -->
+<section id="chu">
+  <div class="sec-label">Chữ</div>
+  <h1>Tiêu đề cấp một, 26px</h1>
+  <h2>Tiêu đề cấp hai, 19px</h2>
+  <h3>Tiêu đề cấp ba, 15px</h3>
+  <p>Văn bản thường 14px trọng lượng 400. Cả bộ chỉ dùng hai trọng lượng: 400 và 500.</p>
+  <p class="caption">Chú thích 12.5px màu <code>--ink-2</code>.</p>
+  <p class="mono" style="font-size:13px">09:00 · 13:00 · 19:00 — mono chỉ cho số, giờ, mã</p>
+  <p>Chữ trong dòng: <code>--sp-4</code>, phím tắt <kbd>A</kbd> <kbd>R</kbd> <kbd>S</kbd>, và <a href="#">liên kết</a>.</p>
+  <pre>duyệt và tiếp    A
+sinh lại         R
+bỏ qua           S</pre>
+  <div class="hairline-labeled">hoặc</div>
+</section>
+
+<!-- ============ NÚT ============ -->
+<section id="nut">
+  <div class="sec-label">Nút</div>
+  <div class="demo">
+    <button class="btn-primary">Nút chính</button>
+    <button class="btn-accent">Nhấn mạnh</button>
+    <button>Nút thường</button>
+    <button class="btn-ghost">Nút mờ</button>
+    <button class="btn-danger">Xoá</button>
+    <button disabled>Vô hiệu</button>
+  </div>
+  <div class="demo">
+    <button class="btn-lg">Cỡ lớn</button>
+    <button>Cỡ thường</button>
+    <button class="btn-sm">Cỡ nhỏ</button>
+    <button class="btn-icon" aria-label="Thêm">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+    <button class="is-loading" style="width:110px">Đang lưu</button>
+  </div>
+  <div class="demo">
+    <span class="btn-group">
+      <button class="on">Ngày</button><button>Tuần</button><button>Tháng</button>
+    </span>
+    <span class="tip" data-tip="Chú giải ngắn, không đặt nội dung tương tác"><button class="btn-sm">Di chuột lên đây</button></span>
+  </div>
+  <p class="note">Mỗi màn hình chỉ một nút chính.</p>
+</section>
+
+<!-- ============ BIỂU MẪU ============ -->
+<section id="form">
+  <div class="sec-label">Biểu mẫu</div>
+  <div class="grid-2">
+    <div class="field-group">
+      <label class="field-label">Tiêu đề <span class="req">*</span></label>
+      <input type="text" value="Setup bàn làm việc dưới 3 triệu">
+      <div class="field-hint">Ngắn gọn, dùng làm đầu vào cho phần sinh nội dung.</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Trạng thái</label>
+      <select><option>Chờ duyệt</option><option>Đã duyệt</option><option>Đã đăng</option></select>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="field-group">
+      <label class="field-label">Có lỗi</label>
+      <input type="text" class="is-invalid" value="">
+      <div class="field-error">Tiêu đề không được để trống.</div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Chỉ đọc</label>
+      <input type="text" value="Không sửa được sau khi đã đăng" readonly>
+    </div>
+  </div>
+
+  <div class="field-group">
+    <label class="field-label">Mô tả <span class="field-count">312 / 500</span></label>
+    <textarea placeholder="Ngữ cảnh cho phần sinh nội dung, không đăng lên"></textarea>
+  </div>
+
+  <div class="grid-2">
+    <div class="field-group">
+      <label class="field-label">Có phần dính hai đầu</label>
+      <div class="input-group">
+        <span class="input-addon">https://</span>
+        <input type="text" value="ban-phim-co.vn">
+        <button>Kiểm tra</button>
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Có icon bên trong</label>
+      <span class="input-icon">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" placeholder="Tìm chủ đề">
+      </span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="field-label">Hộp kiểm và nút chọn</div>
+      <label class="choice"><input type="checkbox" checked>
+        <span><span class="choice-text">Tự đăng khi chưa kịp duyệt</span>
+        <span class="choice-hint">Mặc định tắt. Niềm tin nên được kiếm.</span></span></label>
+      <label class="choice"><input type="checkbox">
+        <span class="choice-text">Nhận thông báo khi đăng lỗi</span></label>
+      <label class="choice"><input type="checkbox" disabled>
+        <span class="choice-text">Vô hiệu</span></label>
+      <label class="choice"><input type="radio" name="r" checked>
+        <span class="choice-text">Chỉ bài này</span></label>
+      <label class="choice"><input type="radio" name="r">
+        <span class="choice-text">Mọi ngày</span></label>
+    </div>
+    <div>
+      <div class="field-label">Công tắc và thanh trượt</div>
+      <span class="switch on mb-3"><span class="switch-track"><i></i></span>Đang chạy</span><br>
+      <span class="switch mb-4"><span class="switch-track"><i></i></span>Đã tạm dừng</span>
+      <input type="range" value="60" class="mt-2">
+      <div class="dropzone mt-3">Kéo thả ảnh vào đây, hoặc bấm để chọn</div>
+    </div>
+  </div>
+  <p class="note">Công tắc dùng cho bật tắt tức thì. Hộp kiểm dùng trong biểu mẫu cần bấm lưu.</p>
+</section>
+
+<!-- ============ HIỂN THỊ DỮ LIỆU ============ -->
+<section id="data">
+  <div class="sec-label">Chip, nhãn, avatar</div>
+  <div class="demo">
+    <span class="chip chip-num on">09:00</span>
+    <span class="chip chip-num">13:00</span>
+    <span class="chip">ngắn hơn <span class="chip-close">×</span></span>
+    <span class="chip chip-add">Thêm slot</span>
+  </div>
+  <div class="demo">
+    <span class="badge badge-warn">3 bài chưa duyệt</span>
+    <span class="badge badge-ok badge-dot">đã đăng</span>
+    <span class="badge badge-accent">đang sinh</span>
+    <span class="badge badge-danger">lỗi đăng</span>
+    <span class="badge badge-plain">bản nháp</span>
+  </div>
+  <div class="demo">
+    <span class="avatar avatar-sm">TN</span>
+    <span class="avatar">TN</span>
+    <span class="avatar avatar-lg">TN</span>
+    <span class="avatar-stack">
+      <span class="avatar">A</span><span class="avatar">B</span>
+      <span class="avatar">C</span><span class="avatar">+5</span>
+    </span>
+  </div>
+
+  <div class="sec-label mt-5">Chỉ số</div>
+  <div class="grid">
+    <div class="card stat">
+      <div class="stat-label">Còn nội dung cho</div>
+      <div class="stat-value">4 ngày</div>
+      <div class="stat-sub">12 bài · hết vào chủ nhật</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-label">Đã đăng tháng này</div>
+      <div class="stat-value">86</div>
+      <div class="stat-sub"><span class="stat-delta-up">↑ 12</span> so với tháng trước</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-label">Tỉ lệ duyệt thẳng</div>
+      <div class="stat-value">71%</div>
+      <div class="stat-sub"><span class="stat-delta-down">↓ 4</span> điểm</div>
+    </div>
+  </div>
+
+  <div class="sec-label mt-5">Danh sách dày đặc</div>
+  <div class="card">
+    <div class="list-head">Hôm nay</div>
+    <div class="list-row list-row-done">
+      <span class="list-row-lead">09:00</span>
+      <div class="list-row-main"><div class="list-row-title">3 sai lầm khi chọn bàn phím cơ</div>
+        <div class="list-row-sub">Threads · Facebook</div></div>
+      <span class="badge badge-ok">đã đăng</span>
+    </div>
+    <div class="list-row">
+      <span class="list-row-lead">13:00</span>
+      <div class="list-row-main"><div class="list-row-title">Vì sao switch tactile hợp dân văn phòng</div>
+        <div class="list-row-sub">Threads · Facebook</div></div>
+      <span class="badge badge-ok">đã duyệt</span>
+    </div>
+    <div class="list-row list-row-flag">
+      <span class="list-row-lead">19:00</span>
+      <div class="list-row-main"><div class="list-row-title">Setup bàn làm việc dưới 3 triệu</div>
+        <div class="list-row-sub">cần duyệt trước 19:00</div></div>
+      <button class="btn-sm">Duyệt</button>
+    </div>
+    <div class="list-row list-row-danger">
+      <span class="list-row-lead">21:00</span>
+      <div class="list-row-main"><div class="list-row-title">Keycap PBT và ABS khác nhau chỗ nào</div>
+        <div class="list-row-sub">đăng lỗi: phiên đăng nhập hết hạn</div></div>
+      <button class="btn-sm">Thử lại</button>
+    </div>
+  </div>
+  <p class="note">Hàng cần chú ý dùng vạch dọc bên trái. Tô đặc cả hàng thì ba hàng liền nhau sẽ thành một mảng màu.</p>
+
+  <div class="sec-label mt-5">Bảng</div>
+  <div class="card">
+    <table class="table">
+      <thead><tr>
+        <th class="is-sortable" aria-sort="descending">Chủ đề</th>
+        <th>Nền tảng</th><th>Trạng thái</th><th class="cell-num">Lượt xem</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>3 sai lầm khi chọn bàn phím cơ</td><td class="muted">Threads</td>
+            <td><span class="badge badge-ok">đã đăng</span></td><td class="cell-num mono">1.284</td></tr>
+        <tr><td>Lube switch tại nhà có đáng công không</td><td class="muted">Facebook</td>
+            <td><span class="badge badge-warn">chưa duyệt</span></td><td class="cell-num mono">—</td></tr>
+        <tr><td>Foam mod: rẻ mà hiệu quả nhất</td><td class="muted">Threads</td>
+            <td><span class="badge badge-plain">bản nháp</span></td><td class="cell-num mono">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sec-label mt-5">Khoá và giá trị, accordion</div>
+  <div class="grid-2">
+    <div class="card card-pad">
+      <dl class="kv">
+        <dt>Tài khoản</dt><dd>ban_phim_co</dd>
+        <dt>Phiên đăng nhập</dt><dd>còn 43 ngày</dd>
+        <dt>Đăng gần nhất</dt><dd class="mono">09:00 hôm nay</dd>
+      </dl>
+    </div>
+    <div class="card card-pad">
+      <details class="accordion" open><summary>Ràng buộc Threads</summary>
+        <div class="accordion-body">Tối đa 500 ký tự, đúng một hashtag, carousel tối đa 20 ảnh.</div>
+      </details>
+      <details class="accordion"><summary>Ràng buộc Facebook</summary>
+        <div class="accordion-body">Chỉ đăng được lên Trang, không đăng được lên hồ sơ cá nhân.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHẢN HỒI ============ -->
+<section id="phanhoi">
+  <div class="sec-label">Banner</div>
+  <div class="column mb-4">
+    <div class="alert alert-info"><div class="alert-body">
+      <div class="alert-title">Đang sinh nội dung cho 3 chủ đề tiếp theo</div>
+      Bạn không cần chờ, cứ thêm chủ đề mới.</div></div>
+    <div class="alert alert-warn"><div class="alert-body">
+      <div class="alert-title">Phiên đăng nhập Threads còn 9 ngày</div>
+      Kết nối lại trước khi hết hạn, nếu không sẽ phải cấp quyền từ đầu.</div>
+      <button class="btn-sm">Kết nối lại</button></div>
+    <div class="alert alert-ok"><div class="alert-body">Đã đăng 3 bài hôm nay, không có lỗi.</div></div>
+    <div class="alert alert-danger"><div class="alert-body">
+      <div class="alert-title">Bỏ lỡ lượt đăng 19:00 hôm qua</div>
+      Máy không chạy vào thời điểm đó. Chọn đăng ngay hoặc đẩy xuống cuối hàng đợi.</div></div>
+  </div>
+
+  <div class="sec-label">Đang tải và tiến trình</div>
+  <div class="grid-2 mb-3">
+    <div class="card card-pad">
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+    </div>
+    <div class="card card-pad">
+      <div class="cluster mb-3"><span class="spinner"></span><span class="caption">Đang sinh nội dung</span></div>
+      <div class="progress mb-3"><i style="width:62%"></i></div>
+      <div class="progress progress-danger mb-3"><i style="width:88%"></i></div>
+      <div class="cluster"><span class="steps"><i class="past"></i><i class="past"></i><i class="on"></i><i></i><i></i></span>
+        <span class="caption">Bài 3 trên 5</span></div>
+    </div>
+  </div>
+
+  <div class="sec-label">Trạng thái rỗng</div>
+  <div class="card">
+    <div class="empty">
+      <div class="empty-title">Chưa có chủ đề nào</div>
+      <div class="empty-body">Gõ một chủ đề vào ô dưới cùng để bắt đầu. Dán nhiều dòng để thêm hàng loạt.</div>
+      <button class="btn-primary">Thêm chủ đề đầu tiên</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LỚP PHỦ ============ -->
+<section id="lopphu">
+  <div class="sec-label">Popover, thực đơn, hộp thoại</div>
+  <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap;align-items:flex-start">
+    <div class="popover">
+      <div class="cluster mb-3">
+        <span class="caption">Đăng lúc</span>
+        <input type="text" class="mono" value="20:30" style="width:78px;text-align:center">
+      </div>
+      <div class="popover-note">11 bài đang xếp sau sẽ dịch sang 20:30.</div>
+      <div class="cluster">
+        <button class="btn-primary btn-sm">Lưu</button>
+        <button class="btn-sm">Huỷ</button>
+        <span class="spacer"></span>
+        <a class="caption" style="color:var(--danger)">Xoá slot</a>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div class="menu-label">Chủ đề</div>
+      <button class="menu-item">Đưa lên đầu hàng đợi</button>
+      <button class="menu-item">Sinh lại nội dung <kbd>R</kbd></button>
+      <button class="menu-item" aria-disabled="true">Bỏ duyệt</button>
+      <hr class="menu-sep">
+      <button class="menu-item is-danger">Xoá chủ đề</button>
+    </div>
+
+    <div class="modal" style="position:static;width:360px">
+      <div class="modal-head"><div class="modal-title">Xoá 3 chủ đề?</div></div>
+      <div class="modal-body">Chúng chưa được đăng nên không ảnh hưởng gì tới bài đã lên. Hoàn tác được trong 10 giây.</div>
+      <div class="modal-foot">
+        <button class="btn-primary btn-sm">Xoá</button>
+        <button class="btn-sm">Huỷ</button>
+      </div>
+    </div>
+  </div>
+  <p class="note">Câu mô tả hậu quả trong popover chính là bước xác nhận. Đừng thêm hộp thoại hỏi lại lần nữa.</p>
+
+  <div class="sec-label mt-5">Thông báo tức thời</div>
+  <div class="toast on" style="position:static;display:inline-flex">
+    Đã đổi thứ tự, giờ đăng tính lại <a>Hoàn tác</a>
+  </div>
+</section>
+
+<!-- ============ ĐIỀU HƯỚNG ============ -->
+<section id="dieuhuong">
+  <div class="sec-label">Tab và điều khiển phân đoạn</div>
+  <div class="demo">
+    <span class="tabs"><span class="tab on">Bài đăng</span><span class="tab">Cài đặt</span></span>
+    <span class="segmented"><span class="on">7 ngày</span><span>14 ngày</span><span>Tất cả</span></span>
+  </div>
+  <div class="tabs-underline mb-4">
+    <span class="tab on">Hàng đợi</span><span class="tab">Đã đăng</span><span class="tab">Lỗi</span>
+  </div>
+
+  <div class="sec-label">Đường dẫn và phân trang</div>
+  <nav class="breadcrumb mb-3"><ol style="display:flex;gap:var(--sp-2);list-style:none;margin:0;padding:0">
+    <li><a href="#">Kênh</a></li><li><a href="#">Bàn phím cơ</a></li>
+    <li aria-current="page">Hàng đợi</li>
+  </ol></nav>
+  <div class="pagination">
+    <button class="btn-sm">Trước</button>
+    <span class="page on">1</span><span class="page">2</span><span class="page">3</span>
+    <span class="page is-gap">…</span><span class="page">12</span>
+    <button class="btn-sm">Sau</button>
+  </div>
+  <p class="note">Phân trang chỉ dùng cho dữ liệu chỉ đọc. Danh sách kéo thả đổi thứ tự thì đừng phân trang, vì không kéo được từ trang này sang trang kia.</p>
+</section>
+
+</main>
+</div>
+
+</body>
+</html>
